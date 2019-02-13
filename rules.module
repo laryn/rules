@@ -858,7 +858,7 @@ function rules_hook_info() {
  * from the database. The entities are loaded into memory and will not require
  * database access if loaded again during the same page request.
  *
- * @see hook_entity_plus_info()
+ * @see hook_entity_info()
  * @see RulesEntityController
  *
  * @param $names
@@ -926,7 +926,7 @@ function rules_get_components($label = FALSE, $type = NULL, $conditions = array(
  *   An array of entity IDs.
  */
 function rules_config_delete(array $ids) {
-  return entity_plus_get_controller('rules_config')->delete($ids);
+  return entity_get_controller('rules_config')->delete($ids);
 }
 
 /**
@@ -1540,7 +1540,7 @@ function rules_modules_disabled($modules) {
 /**
  * Access callback for dealing with Rules configurations.
  *
- * @see entity_plus_access()
+ * @see entity_access()
  */
 function rules_config_access($op, $rules_config = NULL, $account = NULL) {
   if (user_access('bypass rules access', $account)) {
@@ -1706,7 +1706,7 @@ function rules_tokens($type, $tokens, $data, $options = array()) {
     );
     // Entity tokens uses metadata wrappers as values for 'struct' types.
     $wrapper = entity_metadata_wrapper('struct', array('value' => $data[$type]), $info);
-    return entity_plus_token_tokens('struct', $tokens, array('struct' => $wrapper), $options);
+    return entity_token_tokens('struct', $tokens, array('struct' => $wrapper), $options);
   }
 }
 
