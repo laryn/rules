@@ -479,7 +479,7 @@ function rules_flush_caches() {
   // rules_modules_enabled() and rules_modules_disabled(), so we do not need
   // to do it again.
   if (current_path() != 'admin/modules/list/confirm') {
-    entity_defaults_rebuild();
+    entity_plus_defaults_rebuild();
   }
   return array('cache_rules');
 }
