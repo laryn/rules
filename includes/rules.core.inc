@@ -2162,7 +2162,7 @@ abstract class RulesContainerPlugin extends RulesPlugin implements IteratorAggre
         if (empty($var_info['handler']) && (!isset($var_info['parameter']) || $var_info['parameter'])) {
           $params[$name] = $var_info;
           // For lists allow empty variables by default.
-          if (entity_property_list_extract_type($var_info['type'])) {
+          if (entity_plus_property_list_extract_type($var_info['type'])) {
             $params[$name] += array('allow null' => TRUE);
           }
         }
